@@ -101,8 +101,8 @@ In non widgets images is necessary specify the size of parallax effect. The size
 
 ## Common Gotchas
 
-When using libraries like ![Glide](https://github.com/bumptech/glide) and Picasso, Bimaps will be cropped to fit the view, so this library won`t work as the view size will be always the same of the Bitmap.
-To fix this in ![Glide](https://github.com/bumptech/glide), simply change your Target from your ImageView to **BitmapImageViewTarget**:
+When using libraries like [Glide](https://github.com/bumptech/glide), Bimaps will be cropped to fit the view, so this library won't work as the view size will be always the same of the Bitmap. (PS: Picasso won't crop the Bitmap if you don't tell so. So by default it works.)
+To fix this in [Glide](https://github.com/bumptech/glide), simply change your Target from your ImageView to **BitmapImageViewTarget**:
 
 ```java
   Glide.with(getContext())

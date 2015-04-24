@@ -99,6 +99,19 @@ Proguard:
 * **parallax_x** and **parallax_y** = "dimension"
 In non widgets images is necessary specify the size of parallax effect. The size will be split in half for each side. Default value 0.
 
+## Common Gotchas
+
+When using libraries like ![Glide](https://github.com/bumptech/glide) and Picasso, Bimaps will be cropped to fit the view, so this library won`t work as the view size will be always the same of the Bitmap.
+To fix this in ![Glide](https://github.com/bumptech/glide), simply change your Target from your ImageView to **BitmapImageViewTarget**:
+
+```java
+  Glide.with(getContext())
+                    .load(item.getImageUrl())
+                    .asBitmap()
+                    //.into(imageView); // Changed to below because of auto-cropping
+                    .into(new BitmapImageViewTarget(imageView));
+```
+
 ## License
 
 ParallaxEverywhere is available under the MIT license. See the LICENSE file for more info.
